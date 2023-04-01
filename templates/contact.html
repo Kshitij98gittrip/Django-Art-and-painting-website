@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock title %}
+
+{% block body %}
+<style>
+    body{
+        background-color: rgb(236, 236, 236);
+    }
+    .container-fluid img{
+      height: 300px;
+      {% comment %} width: 100%; {% endcomment %}
+    }
+    .container h3{
+        color:black;
+        text-align: center;
+        font-weight: bold;
+        font-size:30px;
+    }
+    .form-control{
+      background-color:white;
+      color:black;
+    }
+    .form-label{
+      font-weight: bold;
+    }
+    .txtarea {
+      font-weight: bold;
+    }
+  </style> 
+<div class="container-fluid px-0 mb-3">
+    <img src="static\7.jpg" class="d-block w-100" alt="...">
+</div>
+    {% comment %} FORM  {% endcomment %}
+<div class="container">
+    <h3><b>Form to upload the artwork and details for displaying it.</b></h3>
+    <form method="post" action="/contact" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-md-6">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="col-md-6 mt-2">
+          <label for="title" class="form-label">Title:</label>
+          <input type="text" class="form-control" name="title" id="title" placeholder
+          ="Enter Blog Title" required>
+        </div>
+        <div class="col-md-6 mt-2">
+            <label for="artype" class="form-label">Art Type:</label>
+            <input type="text" class="form-control" id="artype" name="artype" placeholder="Enter the type of art work you are uplaoding" required>
+        </div>
+        <div class="col-md-6 mt-2">
+          <label for="aboutyou" class="form-label">Write few lines about yourself</label>
+          <textarea class="txtarea" name="aboutyou" id="aboutyou" cols="72" rows="3" placeholder="Write in brief" required></textarea>
+        </div>
+        <div class="col-md-6 mt-2">
+          <label for="aboutart" class="form-label">Description of the art</label>
+          <textarea class="txtarea" name="aboutart" id="aboutart" cols="72" rows="3" placeholder="Write all the points here" required></textarea>
+        </div>
+        <div class="col-md-6 mt-2">
+          <label for="insta" class="form-label">Instagram Link:</label>
+          <input type="text" class="form-control" id="insta" name="insta" placeholder="Enter your instagram profile link (if not write NA)" required>
+        </div>
+        <div class="col-md-6 mt-2">
+          <label for="fb" class="form-label">Facebook Link:</label>
+          <input type="text" class="form-control" id="fb" name="fb" placeholder="Enter your facebook profile link (if not write NA)" required>
+        </div>
+        <div class="col-md-6 mt-2">
+          <label for="otherlink" class="form-label">Other Links:</label>
+          <textarea class="txtarea" name="otherlink" id="otherlink" cols="72" rows="3" placeholder="Enter your other Social media link (eg- Youtube : Link) (if not write NA)" required></textarea>
+        </div>
+        {% comment %} <div class="col-md-6 mt-2">
+            <label for="socialmedia" class="form-label">Social-site Links:</label>
+            <input type="text" class="form-control" id="socialmedia" name="socialmedia" placeholder="Enter Your Social media link (eg- Insta : Link)" required>
+        </div> {% endcomment %}
+        
+        {% comment %} <div class="col-md-2">
+          <label for="zip" class="form-label">Zip</label>
+          <input type="text" class="form-control" name="zip" id="zip">
+        </div> {% endcomment %}
+        <div class="col-md-6 mt-2">
+          <label class="form-label" for="image_u">Upload your image here:</label>
+          <input type="file" class="form-control" id="image_u" name="image_u" required>
+        </div>
+        <div class="col-12 mt-2">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          {% comment %} <button type="submit" class="btn btn-primary">Cancel</button> {% endcomment %}
+        </div>
+      </form>
+       
+    </div>
+{% endblock body %}

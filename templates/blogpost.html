@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% comment %} <style>
+    .visblty{
+        visibility: visible;
+    }
+</style> {% endcomment %}
+{% block body %}
+<a class="btn btn-danger" href="delete/{{post.id}}" class="delete_link">delete</a>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-4 mb-4 font-italic border-bottom">
+                {{post.title}}
+            </h3>
+{% comment %} {% for post in allBlogs %} {% endcomment %}
+            <div class="blog-post">
+                <h2 class="blog-post-title"></h2>
+                <p class="blog-post-meta">{{post.date}}</p>
+                <img class="img-fluid mb-5" src="/media/{{post.photo}}" alt="">
+
+                <p style="font-size:23px"><strong><i class="fa fa-instagram">Instagram</i></strong>:- {{post.insta}} </p>
+                <p style="font-size:23px"><strong><i class="fa fa-instagram">Facebook</i></strong>:- {{post.fb}}</p>
+
+                <p style="font-size:23px"><i class="fa fa-instagram">Other Link</i></strong>:- {{post.otherlink}}</p>
+
+                
+                <hr>
+                <h2>{{post.artype}}</h2>
+                <p> {{post.aboutart}} </p>
+                <h3> About Blogger [{{post.name}}] </h3>
+                <p> {{post.aboutyou}} </p>
+                
+                
+               
+            </div><!-- /.blog-post -->
+            {% comment %} {% endfor %} {% endcomment %}
+          
+
+
+        </div><!-- /.blog-main -->
+
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h4 class="font-italic">About</h4>
+                <p class="mb-0">My Blogging website <em>started out as a small project and now</em> I expect it to grow at a rapid rate. For that I need your support</p>
+            </div>
+
+           
+
+            <div class="p-4">
+                <h4 class="font-italic">Connect Me for website designing</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#"><i class="fa fa-github">GitHub</i></a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </aside><!-- /.blog-sidebar -->
+
+    </div>
+</div>
+
+{% endblock %}
