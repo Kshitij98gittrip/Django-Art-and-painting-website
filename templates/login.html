@@ -133,6 +133,15 @@ body {
   <p class="mt-5 mb-3 text-muted">&copy; 2023–2024</p>
 </form>
 </main>
-
+{%for message in messages %}
+{%if "verify_user" in message.tags %}
+     {% comment %} <p><strong> {{message}} </strong></p>   {# show signup error message #}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> {% endcomment %}
+     <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{%endif%}
+{%endfor%}
 
 {% endblock body %}

@@ -52,4 +52,13 @@ class Upl_image(models.Model):
         self.slug=generate_slug(self.name)
         super(Upl_image,self).save(*args, **kwargs)
 
+class Profile(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    token=models.CharField(max_length=100)
+    is_verifed=models.BooleanField(default=False)
+    created_at=models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
+
      

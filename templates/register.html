@@ -117,7 +117,7 @@ body {
   
 <main class="form-signin m-auto ">
 <form class="text-center" method="post" action="{% url "registeruser"%}" > 
-    {% csrf_token %}
+    {% csrf_token %} 
   {% comment %} <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> {% endcomment %}
   
   <h1 class="h3 mb-3 fw-normal">Please Register here</h1>
@@ -138,14 +138,14 @@ body {
     <input type="email" name="email" placeholder="Email Address" class="form-control" required>
     <label for="floatingEmail">Email</label>
     </div>
-  <div class="form-floating" style="color:black">
+  {% comment %} <div class="form-floating" style="color:black">
     <select name="gender" id="" class="form-control gendr">
     <option value="" disabled selected>Gender</option>
     <option value="male">Male</option>
     <option value="femal">Female</option>
     <option value="other">Other</option>
     </select>
-    </div>
+    </div> {% endcomment %}
   <div class="form-floating">
     <input type="password" class="form-control" name="password1" id="floatingPassword" placeholder="Password" required>
     <label for="floatingPassword">Password</label>

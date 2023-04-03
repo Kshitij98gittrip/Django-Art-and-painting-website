@@ -12,5 +12,6 @@ urlpatterns = [
     path('blogpost/<slug>',views.blogpost,name="blogpost"),
     # path('delete/<int:id>',views.deleteblog,name="deleteblog"),
     path('blogpost/delete/<int:id>', views.delete, name="delete"),
-    path('myblog', views.myblog, name="myblog"),
+    path('myblog', views.myblog, name="myblog"), 
+    path('verify/<token>', views.verify, name="verify"), 
 ]
