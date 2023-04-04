@@ -76,8 +76,9 @@ def registeruser(request):
             my_user.first_name=firstname
             my_user.last_name=lastname
             my_user.save()
-            messages.success(request, 'Registration is successful. Now you can login!',extra_tags='sucess_exist')
+            messages.success(request, 'Registration is successful. PLEASE VERIFY YOUR MAIL BY CLICKING ON THE LINK SEND TO YOUR MAIL!',extra_tags='sucess_exist')
             token=genRandomString(20)
+
             Profile.objects.create(user=my_user,token=token)
             send_mail_to_user(token,email)
             # auth_token=str(uuid.uuid4())
@@ -96,10 +97,10 @@ def loginuser(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        check_user=User.objects.get(username=User.username).first()
+        check_user=User.objects.filter(username = username).first()
         if not Profile.objects.filter(user=check_user).first().is_verifed:
-            messages.error(request,'Your profile is not verified',extra_tags='prof_verify')
-            raise Exception('profile not verified')
+            messages.warning(request,'Your profile is not verified',extra_tags='prof_verify')
+            return redirect('/login')
         # password=request.POST.get('password')
         user = authenticate(username=username, password=password)
         if user is not None:

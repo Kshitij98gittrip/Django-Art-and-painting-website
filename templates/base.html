@@ -256,6 +256,9 @@ section {
     <!-- Example Code -->
     <nav class="navbar navbar-expand-lg bg-body- bg-dark navbar-dark px-0 mx-0" >
       <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-0 mb-lg-0" >
             <li class="nav-item">
@@ -297,9 +300,7 @@ section {
         {% comment %} {{Upl_image.username}} {% endcomment %}
         {% else %}
           <a class="navbar-brand" href="/register">Register</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
           <li class="d-flex navbar-nav nav-item ">
             <a class="form-control me-2" href="/login">Login</a>
           </li>
@@ -409,6 +410,17 @@ section {
 
 {%for message in messages %}
 {%if "sucess_exist" in message.tags %}
+     {% comment %} <p><strong> {{message}} </strong></p>   {# show signup error message #}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> {% endcomment %}
+     <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{%endif%}
+{%endfor%}
+
+{%for message in messages %}
+{%if "prof_verify" in message.tags %}
      {% comment %} <p><strong> {{message}} </strong></p>   {# show signup error message #}
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> {% endcomment %}
      <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
